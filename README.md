@@ -1,6 +1,6 @@
 # warehouse-api
 
-To start and test the Node.js application with the API endpoints for adding, deleting, updating, and listing items in the inventory, follow these steps:
+To start and test the Node.js application locally on your machine: using the API endpoints for adding, deleting, updating, and listing items in the inventory, follow these steps:
 
 1. Install Node.js and npm:
 Ensure Node.js and npm (Node Package Manager) are installed on your system. You can download and install them from the official Node.js website: https://nodejs.org/
