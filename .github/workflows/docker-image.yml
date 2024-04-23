@@ -17,15 +17,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
         with:
-          version:
+          version: latest  # Specify the desired version or use 'latest'
 
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
       - name: Build and Push Docker Image
         run: |
-          docker buildx create --use
-          docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/warehouse-api:latest --push .
+          docker buildx create --use --name mybuilder  # Create a builder instance
+          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 -t ${{ secrets.DOCKERHUB_USERNAME }}/warehouse-api:latest --push .
         env:
           DOCKER_BUILDKIT: 1
           DOCKER_CLI_ACI: 1
